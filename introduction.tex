@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+
+\title{Introduction}
+\author{Dongie Agnir}
+\date{December 7, 2015 }
+
+\begin{document}
+\maketitle
+
+\section*{Exercises}
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item Since $n=15$ is not prime, then Conjecture 2 tells us that $2^{15} - 1$ can be factored into factors $x$ and $y$ where $x = 2^b - 1$ and $y = 1 + 2^b + 2^{2b} + \ldots + 2^{(a-1)b}$ and $n=ab$.  If we have $a=3$ and $b=5$, then
+
+    \begin{equation*}
+      \begin{aligned}
+        x &= 2^5 - 1 \\
+        &= 32 - 1 \\
+        &= 31
+      \end{aligned}
+    \end{equation*}
+
+    and
+
+    \begin{equation*}
+      \begin{aligned}
+        y &= 1 + 2^5 + 2^{2*5} \\
+        &= 1057
+      \end{aligned}
+    \end{equation*}
+
+    We can then verify that $31 \cdot 1057$ is indeed $32767$.
+    \item We've shown that $32767$ is not prime so we know by Conjecture 2 that neither is $2^{32767} - 1$.  We also know from the first part that $32767=31 \cdot 1057$.  Applying the result from Cojecture 2, we know that one of its factors is $2^31 - 1$.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item Let $m = 2 \cdot 3 \cdot 5 \cdot 7 + 1 = 211$.  This is in fact a prime number, and is one that is not in the original list.
+  \item Let $m = 2 \cdot 5 \cdot 11 + 1 = 111$.  Checking, we see that $m$ is not prime because $m=111=37 \cdot 3$.  Both $37$ and $3$ are primes which are not in the list.
+  \end{enumerate}
+\item By Theorem 4, if we let $x=(5+1)!+2=722$, then the integers $x,x+1,\ldots,x+(n-1)$ are not prime, so the sequence $722, 723, 724, 725, 726$ contains no primes.
+\item For $n=5$, since $2^5 - 1$ is a Mersenne Prime, then $2^4(2^5 - 1)=496$ should be perfect number.  Likewise, for $n=7$, $2^6(2^7-1)=8128$ is also a perfect number.
+\item No there are not.  For them to be triplets, it means that they are a list of 3 consecutive odd integers.  However, this means that one of them will be a multiple of 3 and thus not prime (unless that number is $3$ as in the sequence given).
+\end{enumerate}
+\end{document}
