@@ -1,6 +1,5 @@
 \documentclass{article}
 \usepackage{amsmath}
-
 \usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
 
 \title{Chapter 1}
@@ -31,7 +30,7 @@
   \item $\lnot P \lor \lnot Q$
     \item $\lnot P \land \lnot Q$
   \end{enumerate}
-\item Only (a) and (c) are well-formed.  (b) and (c) both contain statements that are not connected by a logical symbol.
+\item Only (a) and (c) are well-formed.	 (b) and (c) both contain statements that are not connected by a logical symbol.
 \item
   \begin{enumerate}
   \item I will not both buy the pants and not buy the shirt.
@@ -44,5 +43,56 @@
   \item Either Steve is happy or George is happy and not Steve, or George is not happy.
   \item Either Steve is happy or George is happy and either Steve or George is not happy.
   \end{enumerate}
+\item
+  \begin{enumerate}
+  \item The \textbf{premise} are: ``Jane and Pete won't both win the math prize'', Pete will win either the math prize or the chemistry prize'', and Jane will win the math prize.''
+
+    The \textbf{conclusion} is ``Therefore, Pete will win the math prize.''
+
+    Let $P$ stand for ``Pete will win the math prize'', $Q$ stand for ``Pete will win the chemistry prize'', and $R$ stand for ``Jane will win the math prize''.
+
+    We can represent the premises in the order given as $\lnot (P \land Q)$, $P \lor Q$, and $R$.
+
+    We can represent the conclusion as $P$.
+
+    Given the premises, yes the conclusion seems reasonable.
+
+  \item The \textbf{premises} are: ``The main course will be either beef or fish.'', ``The vegetable will be either peas or corn.'', and ``We will not have both fish as a main course and corn as a vegetable''.
+
+    The \textbf{conclusion} is ``Therefore we will not have both beef as a main course and peas a vegetable.''
+
+    Let $A$ stand for ``The main course will be beef'', $B$ stand for ``The main course will be fish'', $C$ stand for ``The vegetable will be peas'', and $D$ stand for ``The vegetable will be corn''.
+
+    We can represent the premises as $(A \lor B)$, $(C \lor D)$, and $\lnot (B \land D)$.
+
+    We can represent the conclusion as $\lnot (A \land C)$.
+
+    No, this conclusion does not seem reasonable.  Given the first two premises, there are four possible combinations of main dish and vegetable.  The third premise rules out one of them, but this only concerns fish with peas.
+
+  \item The \textbf{premises} are: ``Either John or Bill is telling the truth.'', ``Either Sam or Bill is lying.''.
+
+    The \textbf{conclusion} is: ``Therefore, either John is telling the truth or Sam is lying.''
+
+    Let $P$ stand for ``John is telling the truth.'', $Q$ stand for ``Bill is telling the truth.'', and $R$ stand for ``Sam is telling the truth.''.
+
+    We can represent the premises as $P \lor Q$ and $\lnot R \lor \lnot P$.
+
+    We can represent the conclusion as $P \lor \lnot R$.
+
+    Yes, this seems reasonable to me.
+
+  \item
+    The \textbf{premise} is ``Either sales will go up and the boss will be happy, or expenses will go up and the boss will be unhappy.''
+
+    The \textbf{conclusion} is ``Sales and expenses will not go up.''
+
+    Let $P$ stand for ``Sales will go up'', $Q$ stand for ``The boss will be happy'', and $R$ stand for ``Expenses will go up''.
+
+    We can represent the premise as $(P \land Q) \lor (R \land \lnot Q)$.
+
+    We can represent the conclusion as $\lnot P \land \lnot R$.
+
+    This doesn't seem reasonable because it's possible for $P$ and $Q$ to be true and $R$ to be false, leaving the premise true, and the conclusion false.
+    \end{enumerate}
 \end{enumerate}
 \end{document}
