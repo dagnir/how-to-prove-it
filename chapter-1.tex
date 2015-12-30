@@ -90,9 +90,207 @@
 
     We can represent the premise as $(P \land Q) \lor (R \land \lnot Q)$.
 
-    We can represent the conclusion as $\lnot P \land \lnot R$.
+    We can represent the conclusion as $\lnot (P \lor R)$.
 
     This doesn't seem reasonable because it's possible for $P$ and $Q$ to be true and $R$ to be false, leaving the premise true, and the conclusion false.
     \end{enumerate}
+\end{enumerate}
+
+\section*{1.2 Exercises}
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{tabular}{c c c c}
+      $P$ & $Q$ & $\lnot P$ & $\lnot P \lor Q$ \\ \hline
+      T & T & F & T \\
+      T & F & F & F \\
+      F & T & T & T \\
+      F & F & T & T \\
+    \end{tabular}
+  \item
+    \begin{tabular}{c c c c c c c}
+      $S$ & $G$ & $S \lor G$ & $\lnot S$ & $\lnot G$ & $\lnot S \lor \lnot G$ & $(S \lor G) \land (\lnot S \lor \lnot G)$ \\ \hline
+      T & T & T & F & F & F & F \\
+      T & F & T & F & T & T & T \\
+      F & T & T & T & F & T & T \\
+      F & F & F & T & T & T & F \\
+    \end{tabular}
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{tabular}{c c c c c c}
+      $P$ & $Q$ & $\lnot P$ & $Q \lor \lnot P$ & $P \land (Q \lor \lnot P)$ & $\lnot [P \land (Q \lor \lnot P)]$ \\ \hline
+      T & T & F & T & T & F \\
+      T & F & F & F & F & T \\
+      F & T & T & T & F & T \\
+      F & F & T & T & F & T \\
+    \end{tabular}
+\item
+    \begin{tabular}{c c c c c c c}
+      $P$ & $Q$ & $R$ & $P \lor Q$ & $\lnot P$ & $\lnot P \lor R$ & $(P \lor Q) \land (\lnot P \lor R)$ \\ \hline
+      T & T & T & T & F & T & T \\
+      T & T & F & T & F & F & F \\
+      T & F & T & T & F & T & T \\
+      T & F & F & T & F & F & F \\
+      F & T & T & T & T & T & T \\
+      F & T & F & T & T & T & T \\
+      F & F & T & F & T & T & F \\
+      F & F & F & F & T & T & F \\
+      \end{tabular}
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{tabular}{c c c}
+      $P$ & $Q$ & $P + Q$ \\ \hline
+      T & T & F \\
+      T & F & T \\
+      F & T & T \\
+      F & F & F \\
+    \end{tabular}
+  \item $P + Q$ is equivalent to $(\lnot P \land Q) \lor (P \land \lnot Q)$.  This makes intuitive sense because $+$ is true precisely when only either $P$ or $Q$ is true.  Here is the truth table:
+
+    \begin{tabular}{c c c c c c c}
+      $P$ & $Q$ & $\lnot P$ & $\lnot Q$ & $\lnot P \land Q$ & $P \land \lnot Q$ & $(\lnot P \land Q) \lor (P \land \lnot Q)$ \\ \hline
+      T & T & F & F & F & F & F \\
+      T & F & F & T & F & T & T \\
+      F & T & T & F & T & F & T \\
+      F & F & T & T & F & F & F \\
+      \end{tabular}
+  \end{enumerate}
+\item
+  $P \lor Q$ is equivalent to $\lnot (\lnot P \land \lnot Q)$.	Again, this makes intuitive sense because $\lor$ is only false when both $P$ and $Q$ are false.	 We can also think about slightly differently: DeMorgan's law says $\lnot (P \land Q) \equiv \lnot P \lor \lnot Q$, so if we start off by negating both $P$ and $Q$ first we have $\lnot (\lnot P \land \lnot Q) \equiv \lnot\lnot P \lor \lnot\lnot Q \equiv P \lor Q$.  Here is the truth table:
+
+  \begin{tabular}{c c c c c c}
+    $P$ & $Q$ & $\lnot P$ & $\lnot Q$ & $\lnot P \land \lnot Q$ & $\lnot (\lnot P \land \lnot Q)$ \\ \hline
+    T & T & F & F & F & T \\
+    T & F & F & T & F & T \\
+    F & T & T & F & F & T \\
+    F & F & T & T & T & F \\
+  \end{tabular}
+\item
+  \begin{enumerate}
+  \item
+    \begin{tabular}{c c c}
+      $P$ & $Q$ & $P \downarrow Q$ \\ \hline
+      T & T & F \\
+      T & F & F \\
+      F & T & F \\
+      F & F & T \\
+      \end{tabular}
+      \item
+	This truth table shows clearly that it's just the opposite of the one for \textit{or}, so it's equivalent to $\lnot (P \lor Q) \equiv \lnot P \land \lnot Q$.  This makes sense because \textit{nor} should only be true when both $P$ and $Q$ are false.
+      \item
+	$\lnot P \equiv P \downarrow P$.  This is very useful because we know see that a statement \textit{nor} itself is equivalent to its negation.
+
+	We know that \textit{nor} is the negation of \textit{or}, so if we negate a \textit{nor} then we get a \textit{or}.  Therefore $P \lor Q \equiv \lnot (P \downarrow Q) \equiv (P \downarrow Q) \downarrow (P \downarrow Q)$.  The third equivalence comes directly from our above result.
+
+	$P \downarrow Q \equiv \lnot P \land \lnot Q$, so if we negate $P$ and $Q$ first, we get $\lnot P \downarrow \lnot Q \equiv \lnot \lnot \land P \lnot \lnot Q \equiv P \land Q$.  So, using ony \textit{nor}: $\lnot P \downarrow \lnot Q \equiv (P \downarrow P) \downarrow (Q \downarrow Q) \equiv P \land Q$.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{tabular}{c c c}
+    $P$ & $Q$ & $(P \uparrow Q)$ \\ \hline
+    T & T & F \\
+    T & F & T \\
+    F & T & T \\
+    F & F & T \\
+    \end{tabular}
+  \item
+    $P \uparrow Q \equiv \lnot P \land \lnot Q$.
+  \item
+    $\lnot P \equiv P \uparrow P$.
+
+    We know $P \uparrow Q \equiv \lnot P \land \lnot Q$, so $\lnot (P \uparrow Q) \equiv \lnot (\lnot P \land \lnot Q) \equiv P \lor Q \equiv (P \uparrow Q) \uparrow (P \uparrow Q)$.
+
+    $P \uparrow Q \equiv \lnot P \land \lnot Q$, so negating $P$ and $Q$ first: $\lnot P \uparrow \lnot Q \equiv \lnot \lnot P \land \lnot \lnot Q \equiv P \land Q \equiv (P \uparrow P) \uparrow (Q \uparrow Q)$.
+
+    Interestingly, these look identical to the results from problem 5.
+  \end{enumerate}
+  \item
+  \begin{enumerate}
+  \item
+    For this, we determined that the premises are $\lnot (P \land R)$, $P \lor Q$, and $R$, and the conclusion is $Q$.	Here is the truth table:
+
+    \begin{tabular}{c c c c c c}
+      $P$ & $Q$ & $R$ & $P \land R$ & $\lnot (P \land R)$ & $P \lor Q$ \\ \hline
+      T & T & T & T & F & T \\
+      T & T & F & F & T & T \\
+      T & F & T & T & F & T \\
+      T & F & F & F & T & T \\
+      F & T & T & F & T & T \\
+      F & T & F & F & T & T \\
+      F & F & T & F & T & F \\
+      F & F & F & F & T & F \\
+    \end{tabular}
+
+    As we can see, all three premises are true on row 5, and so is the conclusion, so this argument is valid.
+
+  \item
+    The premises are $(A \lor B)$, $(C \lor D)$, and $\lnot (B \land D)$, and the conclusion is $\lnot (A \land C)$.
+
+    Here is the truth table.  To save time and space, I only have the premises and conclusion.
+
+    \begin{tabular}{c c c c}
+      $A \lor B$ & $C \lor D$ & $\lnot (B \land D)$ & $\lnot (A \land C)$ \\ \hline
+      T & T & F & F \\
+      T & T & T & F \\
+      T & T & F & T \\
+      T & F & T & T \\
+      T & T & T & F \\
+      T & T & T & F \\
+      T & T & T & T \\
+      T & F & T & T \\
+      T & T & F & T \\
+      T & T & T & T \\
+      T & T & F & T \\
+      T & F & T & T \\
+      F & T & T & T \\
+      F & T & T & T \\
+      F & T & T & T \\
+      F & F & T & T \\
+    \end{tabular}
+
+    As we can see, all three premises are true for rows 2, 5, 6, 7, and 10, but of those rows, the conclusion is true only for row 7 and 10.  This argument is invalid.
+
+  \item The premises are $P \lor Q$ and $\lnot R \lor \lnot Q$, and the conclusion is $P \lor \lnot R$.
+
+    Here is the truth table for the premises and conclusion:
+
+    \begin{tabular}{c c c}
+      $P \lor Q$ & $\lnot R \lor \lnot Q$ & $P \lor \lnot R$ \\ \hline
+      T & F & T \\
+      T & T & T \\
+      T & T & T \\
+      T & T & T \\
+      T & F & F \\
+      T & T & T \\
+      F & T & F \\
+      F & T & T \\
+    \end{tabular}
+
+    The premises are both true for rows 2, 3, 4, and 6, and for those rows the conclusion is also true so this argument is valid.
+  \item
+    The premise is $(P \land Q) \lor (R \land \lnot Q)$, and the conclusion is $\lnot P \land \lnot R$.
+
+    Here is the truth table:
+
+    \begin{tabular}{l r}
+      $(P \land Q) \lor (R \land \lnot Q)$ & $\lnot (P \land R)$ \\ \hline
+      T & F \\
+      T & T \\
+      T & F \\
+      F & T \\
+      F & T \\
+      F & T \\
+      T & T \\
+      F & T \\
+    \end{tabular}
+
+    The premise is true for rows 1, 2, 3, and 7, but of those rows, the conclusion is true only for rows 2 and 7, so this argument is invalid.
+  \end{enumerate}
 \end{enumerate}
 \end{document}
