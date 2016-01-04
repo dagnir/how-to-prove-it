@@ -292,5 +292,18 @@
 
     The premise is true for rows 1, 2, 3, and 7, but of those rows, the conclusion is true only for rows 2 and 7, so this argument is invalid.
   \end{enumerate}
+\item
+  The truth table:
+
+  \begin{tabular}{c c c c c c c}
+    $P$ & $Q$ & $(P \land Q) \lor (\lnot P \land \lnot Q)$ & $\lnot P \lor Q$ & $(P \lor \lnot Q) \land (Q \lor \lnot P)$ & $\lnot(P \lor Q)$ & $(Q \land P) \lor \lnot P$ \\ \hline
+    T & T & T & T & T & F & T \\
+    T & F & F & F & F & F & F \\
+    F & T & F & T & F & F & T \\
+    F & F & T & T & T & T & T \\
+  \end{tabular}
+
+  Looking at the table, we can see that $(P \land Q) \lor (\lnot P \land \lnot Q) \equiv (P \lor \lnot Q) \land (Q \lor \lnot P)$, and $\lnot P \lor Q \equiv (Q \land P) \lor \lnot P$.
+
 \end{enumerate}
 \end{document}
