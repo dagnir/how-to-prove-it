@@ -304,6 +304,165 @@
   \end{tabular}
 
   Looking at the table, we can see that $(P \land Q) \lor (\lnot P \land \lnot Q) \equiv (P \lor \lnot Q) \land (Q \lor \lnot P)$, and $\lnot P \lor Q \equiv (Q \land P) \lor \lnot P$.
+\item
+  The truth tables:
+
+  \begin{tabular}{c c c c c}
+    $P$ & $Q$ & $(P \lor Q) \land (\lnot P \lor \lnot Q)$ & $(P \lor Q) \land (\lnot P \land \lnot Q)$ & $(P \lor Q) \lor (\lnot P \lor \lnot Q)$ \\ \hline
+    T & T & F & F & T \\
+    T & F & T & F & T \\
+    F & T & T & F & T \\
+    F & F & F & F & T \\
+  \end{tabular}
+
+  \begin {tabular}{c c c c}
+    $P$ & $Q$ & $R$ & $[P \land (Q \lor \lnot R)] \lor (\lnot P \lor R)$ \\ \hline
+    T & T & T & T \\
+    T & T & F & T \\
+    T & F & T & T \\
+    T & F & F & T \\
+    F & T & T & T \\
+    F & T & F & T \\
+    F & F & T & T \\
+    F & F & F & T \\
+  \end{tabular}
+
+  We can see that (a) is neither, (b) is a contradiction, and (c) and (d) are tautologies.
+
+\item
+  \begin{enumerate}
+  \item
+
+    \begin{tabular}{c c c c c c c}
+      $P$ & $Q$ & $(P \lor Q)$ & $\lnot (P \lor Q)$ & $\lnot P$ & $\lnot Q$ & $\lnot P \land \lnot Q$ \\ \hline
+      T & T & T & F & F & F & F \\
+      T & F & T & F & F & T & F \\
+      F & T & T & F & T & F & F \\
+      F & F & F & T & T & T & T \\
+    \end{tabular}
+  \item
+    The first distributive law: $P \land (Q \lor R) \equiv (P \land Q) \lor (P \land R)$.
+
+    \begin{tabular}{c c c c c}
+      $P$ & $Q$ & $R$ & $(Q \lor R)$ & $P \land (Q \lor R)$ \\ \hline
+      T & T & T & T & T \\
+      T & T & F & T & T \\
+      T & F & T & T & T \\
+      T & F & F & F & F \\
+      F & T & T & T & F \\
+      F & T & F & T & F \\
+      F & F & T & T & F \\
+      F & F & F & F & F \\
+    \end{tabular}
+
+    \begin{tabular}{c c c}
+      $(P \land Q)$ & $(P \land R)$ & $(P \land Q) \lor (P \land R)$ \\ \hline
+      T & T & T \\
+      T & F & T \\
+      F & T & T \\
+      F & F & F \\
+      F & F & F \\
+      F & F & F \\
+      F & F & F \\
+      F & F & F \\
+    \end{tabular}
+
+    The second distributive law: $P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R)$.
+
+
+    \begin{tabular}{c c c c c}
+      $P$ & $Q$ & $R$ & $(Q \land R)$ & $P \lor (Q \land R)$ \\ \hline
+      T & T & T & T & T \\
+      T & T & F & F & T \\
+      T & F & T & F & T \\
+      T & F & F & F & T \\
+      F & T & T & T & T \\
+      F & T & F & F & F \\
+      F & F & T & F & F \\
+      F & F & F & F & F \\
+    \end{tabular}
+
+    \begin{tabular}{c c c}
+      $P \lor Q$ & $P \lor R$ & $(P \lor Q) \land (P \lor Q)$ \\ \hline
+      T & T & T \\
+      T & T & T \\
+      T & T & T \\
+      T & T & T \\
+      T & T & T \\
+      T & F & F \\
+      F & T & F \\
+      F & F & F \\
+      \end{tabular}
+    \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+
+    \begin{equation*}
+      \begin{aligned}
+	\lnot (\lnot P \land \lnot Q) & \equiv \lnot \lnot P \lor \lnot \lnot Q && \text{DeMorgan's Law} \\
+	& \equiv P \lor Q && \text{double negation law} \\
+	\end{aligned}
+    \end{equation*}
+
+  \item
+    \begin{equation*}
+      \begin{aligned}
+	(P \land Q) \lor (P \land \lnot Q) & \equiv P \land (Q \lor \lnot Q) && \text{Distributive law} \\
+	& \equiv P \land (\text{tautology}) \\
+	& \equiv P && \text{tautology laws} \\
+	\end{aligned}
+    \end{equation*}
+
+  \item
+    \begin{equation*}
+      \begin{aligned}
+	\lnot (P \land \lnot Q) \lor (\lnot P \land Q) & \equiv (\lnot P \lor Q) \lor (\lnot P \land Q) && \text{DeMorgan's law} \\
+	& \equiv [(\lnot P \lor Q) \lor \lnot P] \land [(\lnot P \lor Q) \lor Q] && \text{Distributive law} \\
+	& \equiv [(\lnot P \lor \lnot P) \lor Q] \land [\lnot P \lor (Q \lor Q)] && \text{Associative law and Commutative law} \\
+	& \equiv (\lnot P \lor Q) \land (\lnot P \lor Q) && \text{Idempotent laws} \\
+	& \equiv \lnot P \lor Q && \text{Idempotent laws} \\
+	\end{aligned}
+    \end{equation*}
+  \end{enumerate}
+\item
+  TODO.
+\item
+  The Double negation law says that a negating a negation cancels it out, so
+  \begin{equation*}
+    \lnot P \land \lnot Q \equiv \lnot \lnot (\lnot P \land \lnot Q)
+  \end{equation*}
+
+  Using the first DeMorgan's law, we can negate the statement within the parenthesis:
+
+  \begin{equation*}
+    \begin{aligned}
+      \lnot \lnot (\lnot P \land \lnot Q) & \equiv \lnot (\lnot \lnot P \lor \lnot \lnot Q) \\
+      & \equiv \lnot (P \lor Q) \\
+      \end{aligned}
+  \end{equation*}
+
+  Therefore, we've shown that $\lnot (P \lor Q) \equiv \lnot P \land \lnot Q$.
+
+\item
+  \begin{equation*}
+    \begin{aligned}
+      (P \land (Q \land R)) \land S & \equiv ((P \land Q) \land R) \land S \\
+      & \equiv (P \land Q) \land (R \land S) \\
+    \end{aligned}
+  \end{equation*}
+
+\item Each letter can have two values, true or false.  Each line in a truth table corresponds to a unique combination of the possible values for each letter.  Therefore, there are $2^n$ lines for $n$ letters.
+
+\item From looking at the values, a good guess is that this involves $\lor$ because it's false only once.  Since the first line where both values are false is true, then that signals that one or both of them is negated, and the second line, where $P$ is false and $Q$ is true, and the formula is false suggests that it's $Q$ that's negated, so my guess is the formula is $P \lor \lnot Q$.  Here is the truth table:
+
+  \begin{tabular}{c c c c}
+    $P$ & $Q$ & $\lnot Q$ & $P \lor \lnot Q$ \\ \hline
+    F & F & T & T \\
+    F & T & F & F \\
+    T & F & T & T \\
+    T & T & F & T \\
+    \end{tabular}
 
 \end{enumerate}
 \end{document}
