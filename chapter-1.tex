@@ -571,6 +571,27 @@
   \item $\{1, 3\}$
   \item $\{\}$
   \item $\{x \in \mathbb{R} | -5 < x < 5\}$
-    \end{enumerate}
   \end{enumerate}
+\end{enumerate}
+\section*{1.4 Exercises}
+\begin{enumerate}
+\item
+  For the following problems, $A = \{1,3,12,35\}$, $B = \{3,7,12,20\}$, and $C = \{x \mid x \text{ is a prime number}\}$.
+  \begin{enumerate}
+  \item
+    $A \cap B = \{3,12\}$
+  \item
+    $(A \cup B) \setminus C = \{1,3,7,12,20,35\} \setminus C = \{1,12,20,35\}$
+  \item
+    $A \cup (B \setminus C) = A \cup \{12, 20\} = \{1,3,12,20,35\}$.
+  \end{enumerate}
+  None of the sets are disjoint from any other set.  We can see that $((A \cup B) \setminus C) \subseteq (A \cup (B \setminus C))$ and $(A \cap B) \subseteq (A \cup (B \setminus C))$.
+\item
+  \begin{enumerate}
+    \item
+  I've come across this problem before, and there's an easy proof for it.  First, we need to establish that for four instances of the given shape (a circle in this case) we need to be able to overlap them in such a way as to define 16 distinct regions, since for 4 sets, that exactly how many ways they can be combined.	 With four circles, it's impossible to do; we can get at most 14 regions.  Here is the proof: a circle can overlap another circle in at most 2 points, creating two regions.  With two circles, we get 4 regions (the fourth being both circles ``shaded'').  With a third circle intersecting the existing two, we add another 4 regions, for a total of 8.  So far so good.  But with a fourth circle intersecting the previous 3, we only get 6 additional regions, and not 8 eight needed.
+\item
+  A shape that can be used to represent 4 sets is a rectangle, or also, more interestingly, an ellipse.
+  \end{enumerate}
+\end{enumerate}
 \end{document}
