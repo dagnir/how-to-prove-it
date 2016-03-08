@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+\usepackage{tikz}
 
 \title{Chapter 1}
 \author{Dongie Agnir}
@@ -587,9 +588,247 @@
   \end{enumerate}
   None of the sets are disjoint from any other set.  We can see that $((A \cup B) \setminus C) \subseteq (A \cup (B \setminus C))$ and $(A \cap B) \subseteq (A \cup (B \setminus C))$.
 \item
+  For the following, $A = \{\text{United States}, \text{Germany}, \text{China}, \text{Australia}\}, B = \{\text{Germany}, \text{France}, \text{India}, \text{Brazil}\}, C = \{x \mid x \text{ is a country in Europe}\}$.
+  \begin{enumerate}
+  \item
+    $A \cap B = \{\text{Germany}\}$
+  \item
+    \begin{equation*}
+      \begin{aligned}
+	(A \cup B) \setminus C &= \{\text{United States}, \text{Germany}, \text{China}, \text{Australia}, \text{France}, \text{India}, \text{Brazil}\} \setminus C \\
+	&= \{\text{United States}, \text{China}, \text{Australia}, \text{India}, \text{Brazil}\}
+       \end{aligned}
+    \end{equation*}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+	(B \cap C) \setminus A &= \{\text{Germany}, \text{France}\} \setminus A \\
+	&= \{\text{France}\}
+      \end{aligned}
+      \end{equation*}
+  \end{enumerate}
+\item Below is the Venn diagram corresponding to $A \cap B$:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (1,0) circle (1);
+    \fill (0,0) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$};
+    \draw (1,0) circle (1) (1,1) node [text=black,above] {$B$};
+    \draw (-2,-2) rectangle (3,2) node [text=black,above] {$U$};
+  \end{tikzpicture}
+
+  \pagebreak
+  and also the Venn diagram for $A \cup B$:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2);
+    \fill (0,0) circle (1);
+    \fill (1,0) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$};
+    \draw (1,0) circle (1) (1,1) node [text=black,above] {$B$};
+    \draw (-2,-2) rectangle (3,2) node [text=black,above] {$U$};
+  \end{tikzpicture}
+
+  Going back to the definition of $A \setminus B$, we see that the elements in $A \cup B$ that are not in $A \cap B$ are exactly where $A$ and $B$ don't overlap, and so we remove the overlapping part giving us:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2) (1,0) circle (1);
+    \fill (0,0) circle (1);
+    \endscope
+    \scope
+    \clip (-2,-2) rectangle (2,2) (0,0) circle (1);
+    \fill (1,0) circle (1);
+    \endscope
+    \draw (-2,-2) rectangle (3,2) node [text=black,above] {$U$}
+    (0,0) circle (1) (0, 1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1, 1) node [text=black,above] {$B$};
+  \end{tikzpicture}
+
+  Here is the Venn diagram for $A \setminus B$.	 The elements of the set are elements of $A$ that are not also in $B$, so we need to exclude the area where they overlap.
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2) (1,0) circle (1);
+    \fill (0,0) circle (1);
+    \endscope
+    \draw (-2,-2) rectangle (3,2) (2.5,2) node [text=black,below] {$U$}
+    (0,0) circle (1) (0,1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1,1) node [text=black,above] {$B$};
+  \end{tikzpicture}
+
+  It's a similar diagram for $B \setminus A$:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2) (0,0) circle (1);
+    \fill (1,0) circle (1);
+    \endscope
+    \draw (-2,-2) rectangle (3,2) (2.5,2) node [text=black,below] {$U$}
+    (0,0) circle (1) (0,1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1,1) node [text=black,above] {$B$};
+  \end{tikzpicture}
+
+  $(A \setminus B) \cup (B \setminus A)$ just combines the elements of both sets, and so again we end up with the same diagram as Figure 5.
+
+\item
   \begin{enumerate}
     \item
-  I've come across this problem before, and there's an easy proof for it.  First, we need to establish that for four instances of the given shape (a circle in this case) we need to be able to overlap them in such a way as to define 16 distinct regions, since for 4 sets, that exactly how many ways they can be combined.	 With four circles, it's impossible to do; we can get at most 14 regions.  Here is the proof: a circle can overlap another circle in at most 2 points, creating two regions.  With two circles, we get 4 regions (the fourth being both circles ``shaded'').  With a third circle intersecting the existing two, we add another 4 regions, for a total of 8.  So far so good.  But with a fourth circle intersecting the previous 3, we only get 6 additional regions, and not 8 eight needed.
+  $A \cap B$ is where $A$ and $B$ overlap:
+
+  \begin{tikzpicture}[fill=gray]
+    \fill (1,0) circle (1);
+    \scope
+    \clip (-2,-2) rectangle (2,2) (0,0) circle (1);
+    \fill[fill=white] (1,0) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1,1) node [text=black,above] {$B$};
+  \end{tikzpicture}
+
+  Note that $(A \cap B) \subset B$; and of course just $A$ is:
+
+  \begin{tikzpicture}[fill=gray]
+    \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1,1) node [text=black,above] {$B$}
+    (-2,-2) rectangle (3,2);
+    \fill (0,0) circle (1);
+  \end{tikzpicture}
+
+  Again, going back to the definition of set difference, it's all th elements of $A$ that are not also in $A \cap B$:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2) (1,0) circle (1);
+    \fill (0,0) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1,1) node [text=black,above] {$B$};
+  \end{tikzpicture}
+
+  \pagebreak
+
+  This is exactly the same as $A \setminus B$ since $A$ is:
+
+    \begin{tikzpicture}[fill=gray]
+    \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1,1) node [text=black,above] {$B$}
+    (-2,-2) rectangle (3,2);
+    \fill (0,0) circle (1);
+    \end{tikzpicture}
+
+    $B$ is:
+
+    \begin{tikzpicture}[fill=gray]
+    \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
+    (1,0) circle (1) (1,1) node [text=black,above] {$B$}
+    (-2,-2) rectangle (3,2);
+    \fill (1,0) circle (1);
+    \end{tikzpicture}
+  \end{enumerate}
+
+  And so, all the elements of $A$ that are also not in $B$ looks exactly like the diagram for $A \setminus (A \cap B)$.
+\item
+  $A$ looks like the following:
+
+  \begin{tikzpicture}[fill=gray]
+    \fill (0,0) circle (1);
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+
+  and $B \cap C$:
+
+  \begin{tikzpicture}[fill=gray]
+    \fill (0.5,-1) circle (1)
+    (1,0) circle (1);
+
+    \scope
+    \clip (-2,-2) rectangle (3,2) (1,0) circle (1);
+    \fill[fill=white] (0.5,-1) circle (1);
+    \endscope
+
+    \scope
+    \clip (-2,-2) rectangle (3,2) (0.5,-1) circle (1);
+    \fill[fill=white] (1,0) circle (1);
+    \endscope
+
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+
+  \pagebreak
+  and the union of the two, $A \cup (B \cap C)$, is simply:
+
+  \begin{tikzpicture}[fill=gray]
+    \fill (0.5,-1) circle (1)
+    (1,0) circle (1);
+
+    \scope
+    \clip (-2,-2) rectangle (3,2) (1,0) circle (1);
+    \fill[fill=white] (0.5,-1) circle (1);
+    \endscope
+
+    \scope
+    \clip (-2,-2) rectangle (3,2) (0.5,-1) circle (1);
+    \fill[fill=white] (1,0) circle (1);
+    \endscope
+
+    \fill (0,0) circle (1);
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+
+    The diagram for $A \cup B$:
+
+  \begin{tikzpicture}[fill=gray]
+    \fill (0,0) circle (1)
+    (1,0) circle (1);
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+
+    and for $A \cup C$:
+
+  \begin{tikzpicture}[fill=gray]
+    \fill (0,0) circle (1)
+    (0.5,-1) circle (1);
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+
+    It's easy to see that the union of the two is all of $A$ as well as the elements $B$ and $C$ share, resulting the same diagram as $A \cup (B \cap C)$.
+\item
+  \begin{enumerate}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+	x \in A \setminus (A \cap B) &\equiv (x \in A) \land (x \notin (A \cap B) \\
+	&\equiv (x \in A) \land ((x \notin A) \lor (x \notin B)) \\
+	&\equiv (x \in A \land x \notin A) \lor (x \in A \land x \notin B) \\
+	&\equiv F \lor (x \in A \land x \notin B) \\
+	&\equiv (x \in A \land x \notin B) \\
+	&\equiv A \setminus B
+      \end{aligned}
+    \end{equation*}
+    \end{enumerate}
+\item
+  \begin{enumerate}
+    \item
+  I've come across this problem before, and there's an easy proof for it.  First, we need to establish that for four instances of the given shape (a circle in this case) we need to be able to overlap them in such a way as to define 16 distinct regions, since for 4 sets, that exactly how many ways they can be combined.	 With four circles, it's impossible to do; we can get at most 14 regions.  Here is the proof: a circle can overlap another circle in at most 2 points, creating two regions.  With two circles, we get 4 regions (the fourth being both circles ``shaded'').  With a third circle intersecting the existing two, we add another 4 regions, for a total of 8.  So far so good.  But with a fourth circle intersecting the previous 3, we only get 6 additional regions, and not the 8 eight needed.
 \item
   A shape that can be used to represent 4 sets is a rectangle, or also, more interestingly, an ellipse.
   \end{enumerate}
