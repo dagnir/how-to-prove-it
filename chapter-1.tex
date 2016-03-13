@@ -693,10 +693,11 @@
   Note that $(A \cap B) \subset B$; and of course just $A$ is:
 
   \begin{tikzpicture}[fill=gray]
+        \fill (0,0) circle (1);
     \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
     (1,0) circle (1) (1,1) node [text=black,above] {$B$}
     (-2,-2) rectangle (3,2);
-    \fill (0,0) circle (1);
+
   \end{tikzpicture}
 
   Again, going back to the definition of set difference, it's all th elements of $A$ that are not also in $A \cap B$:
@@ -714,22 +715,24 @@
 
   This is exactly the same as $A \setminus B$ since $A$ is:
 
-    \begin{tikzpicture}[fill=gray]
+  \begin{tikzpicture}[fill=gray]
+        \fill (0,0) circle (1);
     \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
     (1,0) circle (1) (1,1) node [text=black,above] {$B$}
     (-2,-2) rectangle (3,2);
-    \fill (0,0) circle (1);
+
     \end{tikzpicture}
 
     $B$ is:
 
     \begin{tikzpicture}[fill=gray]
+          \fill (1,0) circle (1);
     \draw (0,0) circle (1) (0,1) node [text=black,above] {$A$}
     (1,0) circle (1) (1,1) node [text=black,above] {$B$}
     (-2,-2) rectangle (3,2);
-    \fill (1,0) circle (1);
+
     \end{tikzpicture}
-  \end{enumerate}
+
 
   And so, all the elements of $A$ that are also not in $B$ looks exactly like the diagram for $A \setminus (A \cap B)$.
 \item
@@ -810,22 +813,36 @@
     (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
   \end{tikzpicture}
 
-    It's easy to see that the union of the two is all of $A$ as well as the elements $B$ and $C$ share, resulting the same diagram as $A \cup (B \cap C)$.
+  It's easy to see that the union of the two is all of $A$ as well as the elements $B$ and $C$ share, resulting the same diagram as $A \cup (B \cap C)$.
+  \end{enumerate}
 \item
   \begin{enumerate}
   \item
     \begin{equation*}
       \begin{aligned}
-	x \in A \setminus (A \cap B) &\equiv (x \in A) \land (x \notin (A \cap B) \\
-	&\equiv (x \in A) \land ((x \notin A) \lor (x \notin B)) \\
-	&\equiv (x \in A \land x \notin A) \lor (x \in A \land x \notin B) \\
-	&\equiv F \lor (x \in A \land x \notin B) \\
+	x \in A \setminus (A \cap B) &\equiv (x \in A) \land x \notin (A \cap B) & \text{Def. of set difference} \\
+	&\equiv (x \in A) \land ((x \notin A) \lor (x \notin B)) & \text{Def. of set intersect}\\
+	&\equiv (x \in A \land x \notin A) \lor (x \in A \land x \notin B) & \text{Distrubutive rule}\\
+	&\equiv F \lor (x \in A \land x \notin B) & \text{Tautology}\\
 	&\equiv (x \in A \land x \notin B) \\
 	&\equiv A \setminus B
       \end{aligned}
     \end{equation*}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        x \in A \cup (B \cap C) &\equiv x \in A \lor x \in (B \cap C) & \text{Def. of set union} \\
+        &\equiv x \in A \lor (x \in B \land x \in C) & \text{Def of set intersect}\\
+        &\equiv (x \in A \lor x \in B) \land (x \in A \lor x \in C) & \text{Distributive rule}\\
+        &\equiv x \in (A \cup B) \land x \in (A \cup C) & \text{Def. of set union} \\
+        &\equiv x \in (A \cup B) \cap (A \cup C) & \text{Def. of set intersect}
+        \end{aligned}
+      \end{equation*}
     \end{enumerate}
 \item
+\item
+  $(A \cup B) \setminus C$
+  \item
   \begin{enumerate}
     \item
   I've come across this problem before, and there's an easy proof for it.  First, we need to establish that for four instances of the given shape (a circle in this case) we need to be able to overlap them in such a way as to define 16 distinct regions, since for 4 sets, that exactly how many ways they can be combined.	 With four circles, it's impossible to do; we can get at most 14 regions.  Here is the proof: a circle can overlap another circle in at most 2 points, creating two regions.  With two circles, we get 4 regions (the fourth being both circles ``shaded'').  With a third circle intersecting the existing two, we add another 4 regions, for a total of 8.  So far so good.  But with a fourth circle intersecting the previous 3, we only get 6 additional regions, and not the 8 eight needed.
