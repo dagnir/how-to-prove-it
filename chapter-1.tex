@@ -838,16 +838,333 @@
         &\equiv x \in (A \cup B) \cap (A \cup C) & \text{Def. of set intersect}
         \end{aligned}
       \end{equation*}
-    \end{enumerate}
+  \end{enumerate}
+  \pagebreak
 \item
-\item
-  $(A \cup B) \setminus C$
+  \begin{enumerate}
+    \item
+  $(A \cup B) \setminus C = (A \setminus C) \cup (B \setminus C)$
+
+  The diagrams for $A \cup B$, and $C$:
+
+  \begin{tikzpicture}[fill=gray]
+    \fill (0,0) circle (1)
+    (1,0) circle (1);
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+    \begin{tikzpicture}[fill=gray]
+    \fill (0.5,-1) circle (1);
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+    We remove everything in $C$ from $A \cup B$ leaving:
+
+    \begin{tikzpicture}[fill=gray]
+      \scope
+      \clip (-2,-2) rectangle (2,2)
+      (0.5,-1) circle (1);
+      \fill (0,0) circle (1)
+      (1,0) circle (1);
+      \endscope
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+    The diagrams for $A \setminus C$ and $B \setminus C$:
+
+    \begin{tikzpicture}[fill=gray]
+      \scope
+      \clip (0.5,-1) circle (1)
+      (-2,-2) rectangle (2,2);
+      \fill (0,0) circle (1);
+      \endscope
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+    \begin{tikzpicture}[fill=gray]
+      \scope
+      \clip (0.5,-1) circle (1)
+      (-2,-2) rectangle (2,2);
+      \fill (1,0) circle (1);
+      \endscope
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+    Combining all the shaded areas gives us the same result as above.
   \item
+    $A \cup (B \setminus C) = (A \cup B) \setminus (C \setminus A)$
+
+    The diagram for $A$ and $B \setminus C$:
+
+    \begin{tikzpicture}[fill=gray]
+      \fill (0,0) circle (1);
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+    \begin{tikzpicture}[fill=gray]
+      \scope
+      \clip (0.5,-1) circle (1)
+      (-2,-2) rectangle (2,2);
+      \fill (1,0) circle (1);
+      \endscope
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+    \pagebreak
+    Combining the shaded parts:
+
+    \begin{tikzpicture}[fill=gray]
+      \scope
+      \clip (0.5,-1) circle (1)
+      (-2,-2) rectangle (2,2);
+      \fill (1,0) circle (1);
+      \endscope
+      \fill (0,0) circle (1);
+
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+    The diagram for $A \cup B$ and $C \setminus A$:
+
+    \begin{tikzpicture}[fill=gray]
+      \fill (0,0) circle (1)
+      (1,0) circle (1);
+
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+    \begin{tikzpicture}[fill=gray]
+      \scope
+      \clip (0,0) circle (1)
+      (-2,-2) rectangle (2,2);
+      \fill (0.5,-1) circle (1);
+      \endscope
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+    Removing the shaded regions in the second diagram from the first gives us the same diagram as above.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        x \in (A \cup B) \setminus C &\equiv x \in A \cup B \land x \notin C & \text{Def. of set difference} \\
+        &\equiv (x \in A \lor x \in B) \land x \notin C & \text{Def. of set union} \\
+        &\equiv (x \in A \land x \notin C) \lor (x \in B \land x \notin C) & \text{Distributive law} \\
+        &\equiv x \in (A \setminus C) \lor x \in (B \setminus C) & \text{Def. of set difference} \\
+        &\equiv x \in (A \setminus C) \cup (B \setminus C) & \text{Def. of set union}
+      \end{aligned}
+    \end{equation*}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        x \in A \cup (B \setminus C) &\equiv x \in A \lor x \in (B \setminus C) & \text{Def. of set union}\\
+        &\equiv x \in A \lor (x \in B \land x \notin C) & \text{Def. of set difference}\\
+        &\equiv (x \in A \lor x \in B) \land (x \in A \lor x \notin C) & \text{Distributive law}\\
+        &\equiv (x \in A \lor x \in B) \land \lnot (x \notin A \land x \in C) & \text{DeMorgan's law}\\
+        &\equiv x \in (A \cup B) \land x \notin (C \setminus A) & \text{Set union, difference}\\
+        &\equiv x \in (A \cup B) \setminus(C \setminus A) & \text{Def. of set difference}
+        \end{aligned}
+      \end{equation*}
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+    x \in (A \setminus B) \setminus C &\equiv x \in (A \setminus B) \land x \notin C \\
+    &\equiv (x \in A \land x \notin B) \land x \notin C \\
+    &\equiv x \in A \land x \notin B \land x \notin C
+      \end{aligned}
+    \end{equation*}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        x \in A \setminus (B \setminus C) &\equiv x \in A \land x \notin (B \setminus C) \\
+        &\equiv x \in A \land \lnot (x \in B \land x \notin C) \\
+        &\equiv x \in A \land (x \in C \lor x \notin B) \\
+        &\equiv (x \in A \land x \in C) \lor (x \in A \land x \notin B)
+        \end{aligned}
+    \end{equation*}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        x \in (A \setminus B) \cup (A \cap C) &\equiv x \in (A \setminus B) \lor x \in (A \cap C) \\
+        &\equiv (x \in A \land x \notin B) \lor (x \in A \land x \in C)
+        \end{aligned}
+      \end{equation*}
+
+\item
+  \begin{equation*}
+    \begin{aligned}
+      x \in (A \setminus B) \cap (A \setminus C) &\equiv x \in (A \setminus B) \land x \in (A \setminus C) \\
+      &\equiv (x \in A \land x \notin B) \land (x \in A \land x \notin C) \\
+      &\equiv x \in A \land x \notin B \land x \notin C
+    \end{aligned}
+  \end{equation*}
+\item
+  \begin{equation*}
+    \begin{aligned}
+      x \in A \setminus (B \cup C) &\equiv x \in A \land x \notin (B \cup C) \\
+      &\equiv x \in A \land \lnot (x \in B \lor x \in C) \\
+      &\equiv x \in A \land (x \notin B \land x \notin C) \\
+      &\equiv x \in A \land x \notin B \land x \notin C
+      \end{aligned}
+  \end{equation*}
+  \end{enumerate}
+  a, d, and e are equivalent, and b and c are equivalent.
+\item
+  Let $A = \{1,2\}$ and $B = \{2,3\}$, then $A \cup B = \{1,2,3\}$, and $(A \cup B) \setminus B = \{1\}$ which is a subset of, but not equal to $A$.
+    \item
   \begin{enumerate}
     \item
   I've come across this problem before, and there's an easy proof for it.  First, we need to establish that for four instances of the given shape (a circle in this case) we need to be able to overlap them in such a way as to define 16 distinct regions, since for 4 sets, that exactly how many ways they can be combined.	 With four circles, it's impossible to do; we can get at most 14 regions.  Here is the proof: a circle can overlap another circle in at most 2 points, creating two regions.  With two circles, we get 4 regions (the fourth being both circles ``shaded'').  With a third circle intersecting the existing two, we add another 4 regions, for a total of 8.  So far so good.  But with a fourth circle intersecting the previous 3, we only get 6 additional regions, and not the 8 eight needed.
 \item
   A shape that can be used to represent 4 sets is a rectangle, or also, more interestingly, an ellipse.
   \end{enumerate}
+\item
+  \begin{enumerate}
+    \item
+  The diagrams for $A \cup (B \setminus C)$ and the diagram for $(A \cup B) \setminus C$:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2)
+    (0.5,-1) circle (1);
+    \fill (1,0) circle (1);
+    \endscope
+    \fill (0,0) circle (1);
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2)
+    (0.5,-1) circle (1);
+    \fill (0,0) circle (1)
+    (1,0) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+
+  From the pictures, we can conclude that $(A \cup B) \setminus C \subset A \cup (B \setminus C)$.
+\item
+  Let $A = \{1,4,5,7\}, B = \{2,4,6,7\}, C = \{3,5,6,7\}$, then $A \cup (B \setminus C) = \{1,2,4,5,7\}$ and $(A \cup B) \setminus C = \{1,2,4\}$.
+  \end{enumerate}
+  \pagebreak
+\item
+  $B \triangle C$, and $A \triangle (B \triangle C)$:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2)
+    (1,0) circle (1);
+    \fill (0.5,-1) circle (1);
+    \endscope
+    \scope
+    \clip (-2,-2) rectangle (2,2)
+    (0.5,-1) circle (1);
+    \fill (1,0) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+    \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip
+    (0,0) circle (1)
+    (0.5,-1) circle (1)
+     (-2,-2) rectangle (2,2);
+    \fill (1,0) circle (1);
+    \endscope
+    \scope
+    \clip(1,0) circle (1)
+    (0.5,-1) circle (1)
+    (-2,-2) rectangle (2,2);
+    \fill (0,0) circle (1);
+    \endscope
+    \scope
+    \clip(1,0) circle (1)
+    (0,0) circle (1)
+    (-2,-2) rectangle (2,2);
+    \fill (0.5,-1) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+  \item
+    $A \triangle B$ and $(A \triangle B) \triangle C$:
+
+  \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip (-2,-2) rectangle (2,2)
+    (0,0) circle (1);
+    \fill (1,0) circle (1);
+    \endscope
+    \scope
+    \clip (-2,-2) rectangle (2,2)
+    (1,0) circle (1);
+    \fill (0,0) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+  \end{tikzpicture}
+    \begin{tikzpicture}[fill=gray]
+    \scope
+    \clip
+    (0,0) circle (1)
+    (0.5,-1) circle (1)
+     (-2,-2) rectangle (2,2);
+    \fill (1,0) circle (1);
+    \endscope
+    \scope
+    \clip(1,0) circle (1)
+    (0.5,-1) circle (1)
+    (-2,-2) rectangle (2,2);
+    \fill (0,0) circle (1);
+    \endscope
+    \scope
+    \clip(1,0) circle (1)
+    (0,0) circle (1)
+    (-2,-2) rectangle (2,2);
+    \fill (0.5,-1) circle (1);
+    \endscope
+    \draw (0,0) circle (1) (-0.5,0) node [text=black,above] {$A$}
+    (1,0) circle (1) (1.5, 0) node [text=black,above] {$B$}
+    (0.5,-1) circle (1) (0.5,-1.5) node [text=black,above] {$C$};
+    \end{tikzpicture}
+
+    Based on the diagrams, we can conclude that $A \triangle (B \triangle C) = (A \triangle B) \triangle C$.
 \end{enumerate}
 \end{document}
