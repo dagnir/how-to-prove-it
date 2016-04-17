@@ -1080,6 +1080,8 @@
   \end{enumerate}
   \pagebreak
 \item
+  \begin{enumerate}
+    \item
   $B \triangle C$, and $A \triangle (B \triangle C)$:
 
   \begin{tikzpicture}[fill=gray]
@@ -1166,5 +1168,235 @@
     \end{tikzpicture}
 
     Based on the diagrams, we can conclude that $A \triangle (B \triangle C) = (A \triangle B) \triangle C$.
+
+  \end{enumerate}
+\end{enumerate}
+\section*{1.5 Exercises}
+\begin{enumerate}
+\item
+  \begin{enumerate}
+  \item $(S \lor \lnot E) \Rightarrow \lnot H$
+
+    Where $S$ stands for ``Gas has unpleasant smell'', $E$ stands for ``Gas is explosive'' and $H$ stands for ``Gas is hydrogen''.
+
+  \item $(F \land H) \Rightarrow D$
+
+    Where $F$ stands for ``George has a fever'', $H$ stands for ``George has a headache'', and $D$ stands for ``George sees the doctor''.
+
+  \item $(F \Rightarrow D) \land (H \Rightarrow D)$
+  \item $(x \neq 2) \Rightarrow (P(x) \Rightarrow O(x))$
+
+    Where $P(x)$ means ``$x$ is prime'', and $O(x)$ means ``$x$ is odd''.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item $(P \land A) \Rightarrow S$
+
+    Where $P$ stands for ``Mary gets a good price'', $A$ stands for ``Mary finds a nice apartment'', and $S$ stands for ``Mary sells her house''.
+
+  \item $(H \land D) \Rightarrow M$
+
+    Where $H$ stands for ``You have a good credit history'', and $D$ stands for ``You have an adequate down payment'', and $M$ stands for ``You have a good mortgage''.
+
+  \item $\lnot S \Rightarrow K$
+
+    Where $S$ stands for ``Someone stops John'', and $K$ stands for ``John kills himself''.
+
+  \item $(D(x,4) \lor D(x,6)) \Rightarrow \lnot P(x)$
+
+    Where $D(x,y)$ means ``$x$ is divisible by $y$'', and $P(x)$ means ``$x$ is prime''.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+\item $R \Rightarrow (W \land \lnot S)$
+
+    Where $R$ stands for ``It is raining'', $W$ stands for ``It is windy'', and $S$ stands for ``The sun is shining''.
+
+  \item $\lnot (W \land \lnot S) \Rightarrow \lnot R$.
+
+    This is the contrapositive of (a), so they're equivalent.
+
+  \item $R \Rightarrow (W \land \lnot S)$
+
+    This is equivalent to (a).
+
+  \item $(W \land \lnot S) \Rightarrow R$
+
+    This is equivalent to the converse of (a).
+
+  \item $(S \lor \lnot W) \Rightarrow \lnot R \equiv \lnot (W \land \lnot S) \Rightarrow \lnot R$
+
+    This is the contrapositive of (a), meaning it is also equivalent to (a).
+
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        (\lnot W \Rightarrow \lnot R) \land (\lnot \lnot S \Rightarrow \lnot R) &\equiv (R \Rightarrow W) \land (R \Rightarrow \lnot S) \\
+        &\equiv (\lnot R \lor W) \land (\lnot R \lor \lnot S) \\
+        &\equiv \lnot R \lor (W \land \lnot S) \\
+        &\equiv R \Rightarrow (W \land \lnot S)
+      \end{aligned}
+    \end{equation*}
+
+    This shows that it is equivalent to (a).
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        (\lnot R \Rightarrow \lnot W) \lor (\lnot R \Rightarrow \lnot \lnot S) &\equiv (\lnot \lnot R \lor \lnot W) \lor (\lnot \lnot R \lor \lnot \lnot S) \\
+        &\equiv (R \lor \lnot W) \lor (R \lor S) \\
+        &\equiv \lnot W \lor S \lor R \\
+        &\equiv (\lnot W \lor S) \lor R \\
+        &\equiv \lnot (W \land \lnot S) \lor R \\
+        &\equiv (W \land \lnot S) \Rightarrow R
+      \end{aligned}
+    \end{equation*}
+
+    This shows that this statement is equivalent to the converse of (a).
+  \end{enumerate}
+
+\item
+  \begin{enumerate}
+  \item
+    Let $S$ stand for ``Sales will go up'', $E$ stand for ``Expenses will go up'', and $H$ stand for ``The boss will be happy''.
+
+    The premises are: $S \lor E$, $S \Rightarrow H$, $E \Rightarrow \lnot H$.  We'll rewrite the two conditionals as $\lnot S \lor H$ and $\lnot E \lor \lnot H$.
+
+    The conclusion is $\lnot (S \lor E)$.
+
+    \begin{tabular}{c c c c}
+      $S \lor E$ & $\lnot S \lor H$ & $\lnot E \lor \lnot H$ & $\lnot (S \land E)$ \\ \hline
+      T & T & F & F \\
+      T & F & T & F \\
+      T & T & T & T \\
+      T & F & T & T \\
+      T & T & F & T \\
+      T & T & T & T \\
+      F & T & T & T \\
+      F & T & T & T \\
+    \end{tabular}
+
+    Rows 2 and 6 are where all 3 premises are true, and so is the conclusion so this argument is valid.
+
+  \item
+    Let $T$ stand for ``Taxes will go up'', $U$ stand for ``Unemployment rate will go up'', $G$ stand for ``GNP will go up'', and $R$ stand for ``There will be a recession''.
+
+    The premises are: $(T \land U) \Rightarrow R$, $G \Rightarrow \lnot R$, $G \land T$.
+
+    The conclusion is $\lnot U$.
+
+    We will rewrite the two conditional premises as $\lnot (T \land U) \lor R$, and $\lnot G \lor \lnot R$.
+
+    \pagebreak
+
+    The truth table is:
+
+    \begin{tabular}{c c c c}
+      $\lnot (T \land U) \lor R$ & $\lnot G \lor \lnot R$ & $G \land T$ & $\lnot U$ \\ \hline
+      T & F & T & F \\
+      F & T & T & F \\
+      T & T & F & F \\
+      F & T & F & F \\
+      T & F & T & T \\
+      T & T & T & T \\
+      T & T & F & T \\
+      T & T & F & T \\
+      T & F & F & F \\
+      T & T & F & F \\
+      T & T & F & F \\
+      T & T & F & F \\
+      T & T & F & T \\
+      T & T & F & T \\
+      T & T & F & T \\
+      T & T & F & T \\
+    \end{tabular}
+
+    The only row that all three premises are true is on line 6, and the conclusion is also true, so this argument is valid.
+
+  \item
+    Let $W$ stand for ``The warning light is on'', $P$ stand for ``Pressure is too high'', and $C$ stand for ``The relief valve is clogged.''
+
+    The premises are $W \iff (P \land C)$ and $\lnot C$.
+
+    We can rewrite the first premise as
+    \begin{equation*}
+      (W \Rightarrow (P \land C)) \land ((P \land C) \Rightarrow W) \equiv (\lnot W \lor (P \land C)) \land (\lnot (P \land C) \lor W)
+    \end{equation*}
+
+    The conclusion is $W \iff P$. We will rewrite this as
+
+    \begin{equation*}
+      (\lnot W \lor P) \land (\lnot P \lor W)
+    \end{equation*}
+
+    The truth table:
+
+    \begin{tabular}{c c c}
+      $(\lnot W \lor (P \land C)) \land (\lnot (P \land C) \lor W)$ &
+      $\lnot C$ &
+      $(\lnot W \lor P) \land (\lnot P \lor W)$ \\ \hline
+      T & F & T \\
+      F & T & T \\
+      F & F & F \\
+      F & T & F \\
+      F & F & F \\
+      T & T & F \\
+      T & F & T \\
+      T & T & T \\
+    \end{tabular}
+
+    This argument is not valid since both premises are true on line 6, but the conclusion is false.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        P \iff Q &\equiv (P \Rightarrow Q) \land (Q \Rightarrow P) & \text{Def. of biconditional} \\
+        &\equiv (P \Rightarrow Q) \land (\lnot P \Rightarrow \lnot Q) & \text{Contrapositive} \\
+        &\equiv (\lnot P \lor Q) \land (\lnot \lnot P \lor \lnot Q) \\
+        &\equiv (\lnot P \lor Q) \land (P \lor \lnot Q) & \text{Double negation law} \\
+        &\equiv ((\lnot P \lor Q) \land P) \lor ((\lnot P \lor Q) \land \lnot Q) & \text{Distributive law} \\
+        &\equiv ((\lnot P \land P) \lor (P \land Q)) \lor ((\lnot P \land \lnot Q) \lor (Q \land \lnot Q)) & \text{Distributive law} \\
+        &\equiv (P \land Q) \lor (\lnot P \land \lnot Q) & \text{Tautology}
+      \end{aligned}
+    \end{equation*}
+
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        (P \Rightarrow Q) \lor (P \Rightarrow R) &\equiv (\lnot P \lor Q) \lor (\lnot P \lor R) \\
+        &\equiv \lnot P \lor Q \lor \lnot P \lor R & \text{Associative law} \\
+        &\equiv \lnot P \lor Q \lor R \\
+        &\equiv \lnot P \lor (Q \lor R) & \text{Associative law} \\
+        &\equiv P \Rightarrow (Q \lor R)
+      \end{aligned}
+    \end{equation*}
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \item
+    \begin{equation*}
+      \begin{aligned}
+        (P \Rightarrow R) \land (Q \Rightarrow R) &\equiv (\lnot P \lor R) \land (\lnot Q \lor R) \\
+        &\equiv (\lnot P \land \lnot Q) \lor R & \text{Distributive law} \\
+        &\equiv \lnot (P \lor Q) \lor R & \text{DeMorgan's law} \\
+        &\equiv (P \lor Q) \Rightarrow R
+      \end{aligned}
+    \end{equation*}
+  \item
+     \begin{equation*}
+       \begin{aligned}
+         (P \Rightarrow R) \lor (Q \Rightarrow R) &\equiv (\lnot P \lor R) \lor (\lnot Q \lor R) \\
+         &\equiv \lnot P \lor R \lor \lnot Q \lor R & \text{Associative law} \\
+         &\equiv \lnot P \lor R \lor \lnot Q \\
+         &\equiv \lnot P \lor \lnot Q \lor R & \text{Commutative law} \\
+         &\equiv (\lnot P \lor \lnot Q) \lor R & \text{Associative law} \\
+         &\equiv \lnot (P \land Q) \lor R & \text{DeMorgan's law} \\
+         &\equiv (P \land Q) \Rightarrow R
+       \end{aligned}
+    \end{equation*}
+
+     This shows that $(P \Rightarrow R) \lor (Q \Rightarrow R) \equiv (P \land Q) \Rightarrow R$.
+  \end{enumerate}
 \end{enumerate}
 \end{document}
