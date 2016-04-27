@@ -1398,5 +1398,50 @@
 
      This shows that $(P \Rightarrow R) \lor (Q \Rightarrow R) \equiv (P \land Q) \Rightarrow R$.
   \end{enumerate}
+
+\item
+  \begin{enumerate}
+    \item
+      We can demonstrate this using a truth table.  To save space, I'll only show the truth tables of the two expressions without the intermediate steps:
+
+      \begin{tabular}{c c}
+        $(P \Rightarrow Q) \land (Q \Rightarrow R)$ & $(P \Rightarrow R) \land [(P \iff Q) \lor (R \iff Q)]$ \\ \hline
+        T & T \\
+        F & F \\
+        F & F \\
+        F & F \\
+        T & T \\
+        F & F \\
+        T & T \\
+        T & T \\
+      \end{tabular}
+    \item
+      Again, we can use a truth table:
+
+      \begin{tabular}{c c c}
+        $(P \Rightarrow Q)$ & $(Q \Rightarrow R)$ & $(P \Rightarrow Q) \lor (Q \Rightarrow R)$ \\ \hline
+        T & T & T \\
+        T & F & T \\
+        F & T & T \\
+        F & T & T \\
+        T & T & T \\
+        T & F & T \\
+        T & T & T \\
+        T & T & T \\
+      \end{tabular}
+  \end{enumerate}
+\item
+  We know that $(P \Rightarrow Q) \equiv (\lnot P \lor Q)$.  By negating the expression, we have $\lnot (\lnot P \lor Q) \equiv P \land \lnot Q$.  We just need to get rid of the $\lnot$, and we can do that by \starting off with $\lnot Q$:
+  \begin{equation*}
+    \begin{aligned}
+      $\not (P \Rightarrow \lnot Q) &\equiv \lnot (\lnot P \lor \lnot Q) \\
+      &\equiv \lnot \lnot P \land \lnot \lnot Q \\
+      &\equiv P \land Q
+    \end{aligned}
+    \end{equation*}
+\item
+  We know that $(P \iff Q) \equiv (P \Rightarrow Q) \land (Q \Rightarrow P)$.  From problem 8, we already know how to find the equivalent of $\land$ using only $\lnot$ and $\Rightarrow$, so $\iff$ is equivalent to $\lnot [(P \Rightarrow Q) \Rightarrow \lnot (Q \Rightarrow P)]$.
+\item
+  (a), (b), and (d) are equivalent because they're all equivalent to $\lnot P \lor \lnot Q \lor R$.  (e) and (c) are equivalent because they're both equivalent to $(\lnot P \lor Q) \land (\lnot P \lor R)$.
 \end{enumerate}
 \end{document}
